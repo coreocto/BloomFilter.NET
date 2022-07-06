@@ -76,6 +76,7 @@ namespace Org.Coreocto.Dev.Tests
         {
             var instance1 = new BloomFilter<string>(1000, 100);
             var instance2 = new BloomFilter<string>(1000, 100);
+            BloomFilter<string> instance3 = null;
 
             for (int i = 0; i < 100; i++)
             {
@@ -83,16 +84,21 @@ namespace Org.Coreocto.Dev.Tests
                 instance1.Add(val);
                 instance2.Add(val);
             }
-            Assert.AreEqual(instance1, instance2);
-            Assert.AreEqual(instance2, instance1);
+            Assert.IsTrue(instance1.Equals(instance2));
+            Assert.IsTrue(instance2.Equals(instance1));
+            Assert.IsFalse(instance1.Equals(instance3));
 
             instance1.Add("Another entry"); // make instance1 and instance2 different before clearing
+
+            Assert.IsFalse(instance1.Equals(instance2));
+            Assert.IsFalse(instance2.Equals(instance1));
+            Assert.IsFalse(instance1.Equals(instance3));
 
             instance1.Clear();
             instance2.Clear();
 
-            Assert.AreEqual(instance1, instance2);
-            Assert.AreEqual(instance2, instance1);
+            Assert.IsTrue(instance1.Equals(instance2));
+            Assert.IsTrue(instance2.Equals(instance1));
 
             for (int i = 0; i < 100; i++)
             {
@@ -101,8 +107,8 @@ namespace Org.Coreocto.Dev.Tests
                 instance2.Add(val);
             }
 
-            Assert.AreEqual(instance1, instance2);
-            Assert.AreEqual(instance2, instance1);
+            Assert.IsTrue(instance1.Equals(instance2));
+            Assert.IsTrue(instance2.Equals(instance1));
         }
 
         [Test]
