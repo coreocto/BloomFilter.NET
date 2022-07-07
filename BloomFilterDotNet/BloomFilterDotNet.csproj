@@ -3,7 +3,10 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<Nullable>enable</Nullable>
-		<RootNamespace>Org.Coreocto.Dev</RootNamespace>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\BloomFilterDotNet.Abstractions\BloomFilterDotNet.Abstractions.csproj" />
+	</ItemGroup>
 
 </Project>

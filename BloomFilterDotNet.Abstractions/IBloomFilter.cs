@@ -1,4 +1,4 @@
-﻿namespace Org.Coreocto.Dev
+﻿namespace BloomFilterDotNet.Abstractions
 {
     using System.Collections;
     using System.Collections.Generic;

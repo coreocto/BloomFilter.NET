@@ -1,8 +1,9 @@
 ﻿using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("BloomFilter.Tests")]
-namespace Org.Coreocto.Dev
+namespace BloomFilterDotNet
 {
+    using BloomFilterDotNet.Abstractions;
     using System;
     using System.Collections;
     using System.Collections.Generic;

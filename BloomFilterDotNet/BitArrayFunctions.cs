@@ -1,4 +1,4 @@
-﻿namespace Org.Coreocto.Dev
+﻿namespace BloomFilterDotNet
 {
     using System;
     using System.Collections;

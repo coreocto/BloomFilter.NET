@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Org.Coreocto.Dev.Tests
+namespace BloomFilterDotNet.Tests
 {
     [TestFixture]
     public class BitArrayFunctionsFixture

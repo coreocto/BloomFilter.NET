@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Org.Coreocto.Dev.Tests
+namespace BloomFilterDotNet.Tests
 {
 
     [TestFixture]
@@ -399,11 +399,27 @@ namespace Org.Coreocto.Dev.Tests
             }
         }
 
-        [Test]
-        public void Test_Count()
+        static object[] TestCases_for_Count = new object[]
         {
-            var expResult = 100;
-            var instance = new BloomFilter<byte[]>(0.01, expResult);
+            new object[]
+            {
+                1,
+                new BloomFilter<byte[]>(0.01, 100),
+                new BloomFilter<string>(0.01, 100),
+                100
+            },
+            new object[]
+            {
+                2,
+                new BloomFilter<byte[]>(10, 100),
+                new BloomFilter<string>(10, 100),
+                100
+            }
+        };
+
+        [TestCaseSource(nameof(TestCases_for_Count))]
+        public void Test_Count(int testCaseId, BloomFilter<byte[]> instance, BloomFilter<string> instance2, int expResult)
+        {   
             for (var i = 0; i < expResult; i++)
             {
                 var bytes = new byte[100];
@@ -413,13 +429,12 @@ namespace Org.Coreocto.Dev.Tests
             var result = instance.Count;
             Assert.AreEqual(expResult, result);
 
-            var instance2 = new BloomFilter<string>(0.01, expResult);
             for (var i = 0; i < expResult; i++)
             {
                 instance2.Add($"{Guid.NewGuid()}");
             }
-            result = instance2.Count;
-            Assert.AreEqual(expResult, result);
+            var result2 = instance2.Count;
+            Assert.AreEqual(expResult, result2);
         }
     }
 }

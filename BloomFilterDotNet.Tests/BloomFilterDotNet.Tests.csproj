@@ -6,7 +6,6 @@
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
-	  <RootNamespace>Org.Coreocto.Dev.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BloomFilter\BloomFilter.csproj" />
+    <ProjectReference Include="..\BloomFilterDotNet\BloomFilterDotNet.csproj" />
   </ItemGroup>
 
 </Project>
