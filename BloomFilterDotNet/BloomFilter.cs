@@ -79,7 +79,7 @@ namespace BloomFilterDotNet
                 using (var memoryStream = new MemoryStream())
                 {
                     memoryStream.Write(new byte[] { salt }, 0, 1);
-                    memoryStream.Write(data);
+                    memoryStream.Write(data, 0, data.Length);
                     memoryStream.Seek(0, SeekOrigin.Begin);
                     salt++;
                     digest = _digestFunction.ComputeHash(memoryStream.ToArray());
@@ -184,7 +184,7 @@ namespace BloomFilterDotNet
             return Size / (double)Count;
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             if (obj is null)
                 return false;

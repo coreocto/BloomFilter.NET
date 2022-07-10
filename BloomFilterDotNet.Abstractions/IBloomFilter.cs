@@ -12,7 +12,7 @@
         bool Contains(T element);
         bool ContainsAll(ICollection<T> c);
         int Count { get; }
-        bool Equals(object? obj);
+        bool Equals(object obj);
         double GetExpectedFalsePositiveProbability();
         bool GetBit(int bit);
         BitArray BitSet { get; }
